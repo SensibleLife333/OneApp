@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:oneapp/config/oneapp_constants.dart';
+import 'package:oneapp/config/oneapp_routes.dart';
 import 'package:oneapp/config/oneapp_sizeconfig.dart';
 import 'package:oneapp/utils/oneapp_colors.dart';
+import 'package:oneapp/widgets/widget_helpers.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, required this.title}) : super(key: key);
@@ -15,6 +17,10 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   static final List<String> _countryCodes = countryCodes;
   String _dropdownValue = "+91";
+
+  _sendOtp(){
+    Navigator.of(context).pushNamed(routeOtpVerify);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: SizeConfig.screenHeight * 0.05,
-                        fontWeight: FontWeight.w200,
+                        fontWeight: FontWeight.w300,
                       ),
                     ),
                   ],
@@ -143,26 +149,7 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               height: SizeConfig.screenHeight * 0.2,
             ),
-            SizedBox(
-              width: SizeConfig.screenWidth * 0.5,
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    gradient: const LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.tealAccent,
-                          Colors.greenAccent
-                        ]
-                    )
-                ),
-                child: TextButton(
-                  onPressed: (){},
-                  child:  const Text("Send OTP"),
-                ),
-              ),
-            )
+            WidgetHelper.commonButton(onClick: _sendOtp, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: 'Send OTP'),
           ],
         ),
       ),
