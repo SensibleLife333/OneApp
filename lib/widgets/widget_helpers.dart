@@ -17,7 +17,10 @@ class WidgetHelper {
                   colors: [Colors.tealAccent, Colors.greenAccent])),
           child: TextButton(
             onPressed: () => onClick(),
-            child: Text(buttonText, style: const TextStyle(color: Colors.black),),
+            child: Text(
+              buttonText,
+              style: const TextStyle(color: Colors.black),
+            ),
           ),
         ));
   }
@@ -42,7 +45,10 @@ class WidgetHelper {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                FaIcon(icon, color: Colors.black54,),
+                FaIcon(
+                  icon,
+                  color: Colors.black54,
+                ),
                 SizedBox(
                   width: width * 0.01,
                 ),
@@ -54,5 +60,20 @@ class WidgetHelper {
             ),
           ),
         ));
+  }
+
+  static Widget commonBackArrow({required Function onPressed}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        IconButton(
+            onPressed: () => onPressed(),
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            ))
+      ],
+    );
   }
 }

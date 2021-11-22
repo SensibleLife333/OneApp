@@ -5,6 +5,8 @@ import 'package:oneapp/screens/home/import_social_details.dart';
 import 'package:oneapp/screens/home/login_screen.dart';
 import 'package:oneapp/screens/home/otp_verify_screen.dart';
 import 'package:oneapp/screens/home/set_fullname_screen.dart';
+import 'package:oneapp/screens/home/set_profilpicbio_screen.dart';
+import 'package:oneapp/screens/home/set_username_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,6 +40,8 @@ class MyApp extends StatelessWidget {
           routeSocialLogin: (context) =>
               const ImportSocialDetailsScreen(title: "WELCOME"),
           routeSetFullName: (context) => const SetFullNameScreen(title: "Let us know your full name."),
+          routeSetUsername: (context) => const SetUsernameScreen(title: "Username tells a lot about you",),
+          routeSetProfilePicBio: (context) => const SetProfilePicBioScreen(title: "Select a profile pic"),
         },
       ),
     );
