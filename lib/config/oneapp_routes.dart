@@ -1,3 +1,5 @@
 // One App Routes
 const routeHome = "/";
-const routeOtpVerify = "/verifyotp";
+const routeOtpVerify = "/verifyOtp";
+const routeSocialLogin = "/socialLogin";
+const routeSetFullName = "/setFullName";
