@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oneapp/config/oneapp_routes.dart';
 import 'package:oneapp/config/oneapp_sizeconfig.dart';
 import 'package:oneapp/utils/oneapp_colors.dart';
 import 'package:oneapp/widgets/widget_helpers.dart';
@@ -17,8 +18,8 @@ class OtpVerifyScreen extends StatefulWidget {
 
 class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
 
-  _sendOtp(){
-    print("Receive OTP Clicked");
+  _verifyOtp(){
+    Navigator.of(context).pushNamed(routeSocialLogin);
   }
 
   @override
@@ -93,7 +94,7 @@ class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
             SizedBox(
               height: SizeConfig.screenHeight * 0.2,
             ),
-            WidgetHelper.commonButton(onClick: _sendOtp, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: "Next"),
+            WidgetHelper.commonButton(onClick: _verifyOtp, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: "Next"),
           ],
         ),
       ),
