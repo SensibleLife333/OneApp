@@ -122,7 +122,7 @@ class _ImportSocialDetailsScreenState extends State<ImportSocialDetailsScreen> {
                 WidgetHelper.commonIconButton(
                     onClick: _sendOtp,
                     buttonWidth: SizeConfig.screenWidth * 0.5,
-                    buttonText: "Import from Twitter",
+                    buttonText: "Import from LinkedIn",
                     width: SizeConfig.screenWidth,
                     icon: FontAwesomeIcons.linkedinIn),
                 SizedBox(
@@ -131,7 +131,7 @@ class _ImportSocialDetailsScreenState extends State<ImportSocialDetailsScreen> {
                 WidgetHelper.commonIconButton(
                     onClick: _sendOtp,
                     buttonWidth: SizeConfig.screenWidth * 0.5,
-                    buttonText: "Import from Twitter",
+                    buttonText: "Import from Instagram",
                     width: SizeConfig.screenWidth,
                     icon: FontAwesomeIcons.instagram),
                 TextButton(
