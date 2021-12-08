@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:oneapp/config/oneapp_sizeconfig.dart';
 
 class WidgetHelper {
   static Widget commonButton(
       {required Function onClick,
       required double buttonWidth,
-      required String buttonText}) {
+      required String buttonText,
+      required double fontSize}) {
     return SizedBox(
         width: buttonWidth,
         child: Container(
@@ -19,7 +21,7 @@ class WidgetHelper {
             onPressed: () => onClick(),
             child: Text(
               buttonText,
-              style: const TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.black, fontSize: fontSize),
             ),
           ),
         ));
@@ -74,6 +76,28 @@ class WidgetHelper {
               color: Colors.white,
             ))
       ],
+    );
+  }
+
+  static Widget textFormField(
+      {required String hinText, required TextInputType textInputType, required bool isObsecure, required double size}){
+    return TextFormField(
+      keyboardType: textInputType,
+      obscureText: isObsecure,
+      maxLength: 80,
+      decoration: InputDecoration(
+        hintText: hinText,
+        hintStyle: const TextStyle(color: Colors.white60),
+        enabledBorder: const UnderlineInputBorder(
+            borderSide:
+            BorderSide(color: Colors.white60)),
+        border: const UnderlineInputBorder(
+            borderSide:
+            BorderSide(color: Colors.white60)),
+        contentPadding: EdgeInsets.only(
+            left: size * 0.02,
+            right: size * 0.02),
+      ),
     );
   }
 }

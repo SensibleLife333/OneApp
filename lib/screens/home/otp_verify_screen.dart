@@ -94,7 +94,7 @@ class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
             SizedBox(
               height: SizeConfig.screenHeight * 0.2,
             ),
-            WidgetHelper.commonButton(onClick: _verifyOtp, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: "Next"),
+            WidgetHelper.commonButton(onClick: _verifyOtp, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: "Next", fontSize: SizeConfig.screenWidth * 0.05),
           ],
         ),
       ),

@@ -107,7 +107,9 @@ class _SetFullNameScreenState extends State<SetFullNameScreen> {
                 child: WidgetHelper.commonButton(
                     onClick: _goToNextScreen,
                     buttonWidth: SizeConfig.screenWidth * 0.5,
-                    buttonText: "Next"),
+                    buttonText: "Next",
+                  fontSize: SizeConfig.screenWidth * 0.05
+                ),
               )),
         ],
       ),

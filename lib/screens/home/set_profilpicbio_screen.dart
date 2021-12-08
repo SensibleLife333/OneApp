@@ -94,7 +94,9 @@ class _SetProfilePicBioScreenState extends State<SetProfilePicBioScreen> {
                       child: WidgetHelper.commonButton(
                           onClick: _sendOtp,
                           buttonWidth: SizeConfig.screenWidth * 0.5,
-                          buttonText: "Next"),
+                          buttonText: "Next",
+                        fontSize: SizeConfig.screenWidth * 0.05
+                      ),
                     )
                   ],
                 ),

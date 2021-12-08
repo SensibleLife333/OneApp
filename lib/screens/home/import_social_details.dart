@@ -107,41 +107,7 @@ class _ImportSocialDetailsScreenState extends State<ImportSocialDetailsScreen> {
             SizedBox(
               height: SizeConfig.screenHeight * 0.1,
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                WidgetHelper.commonIconButton(
-                    onClick: _sendOtp,
-                    buttonWidth: SizeConfig.screenWidth * 0.5,
-                    buttonText: "Import from Twitter",
-                    width: SizeConfig.screenWidth,
-                    icon: FontAwesomeIcons.twitter),
-                SizedBox(
-                  height: SizeConfig.screenHeight * 0.01,
-                ),
-                WidgetHelper.commonIconButton(
-                    onClick: _sendOtp,
-                    buttonWidth: SizeConfig.screenWidth * 0.5,
-                    buttonText: "Import from LinkedIn",
-                    width: SizeConfig.screenWidth,
-                    icon: FontAwesomeIcons.linkedinIn),
-                SizedBox(
-                  height: SizeConfig.screenHeight * 0.01,
-                ),
-                WidgetHelper.commonIconButton(
-                    onClick: _sendOtp,
-                    buttonWidth: SizeConfig.screenWidth * 0.5,
-                    buttonText: "Import from Instagram",
-                    width: SizeConfig.screenWidth,
-                    icon: FontAwesomeIcons.instagram),
-                TextButton(
-                    onPressed: _setDetailsManually,
-                    child: const Text(
-                      "I will enter my info manually",
-                      style: TextStyle(color: Colors.white),
-                    )),
-              ],
-            ),
+            WidgetHelper.commonButton(onClick: (){}, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: "Let's Get Started", fontSize: SizeConfig.screenWidth * 0.045),
           ],
         ),
       ),
