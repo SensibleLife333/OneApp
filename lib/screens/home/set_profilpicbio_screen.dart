@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:oneapp/config/oneapp_routes.dart';
 import 'package:oneapp/config/oneapp_sizeconfig.dart';
 import 'package:oneapp/utils/oneapp_colors.dart';
 import 'package:oneapp/widgets/widget_helpers.dart';
@@ -13,8 +17,24 @@ class SetProfilePicBioScreen extends StatefulWidget {
 }
 
 class _SetProfilePicBioScreenState extends State<SetProfilePicBioScreen> {
+  final ImagePicker _picker = ImagePicker();
+  String _selectedImageFile="";
+
   _sendOtp() {
     print("Receive OTP Clicked");
+  }
+
+  _gotoFindFriends(){
+    Navigator.of(context).pushNamed(routeFindFriends);
+  }
+
+  _selectImage() async{
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    if( image != null ){
+      setState(() {
+        _selectedImageFile = image.path;
+      });
+    }
   }
 
   _goBack() {
@@ -28,6 +48,7 @@ class _SetProfilePicBioScreenState extends State<SetProfilePicBioScreen> {
     return Scaffold(
       backgroundColor: primaryColor,
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Stack(
           children: [
             Container(
@@ -39,7 +60,7 @@ class _SetProfilePicBioScreenState extends State<SetProfilePicBioScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Align(
-                      child: TextButton(onPressed: (){}, child: const Text("Skip", style: TextStyle(color: Colors.white60),),),
+                      child: TextButton(onPressed: () => _gotoFindFriends(), child: const Text("Skip", style: TextStyle(color: appTextColor),),),
                       alignment: Alignment.topRight,
                     ),
                     SizedBox(
@@ -72,27 +93,41 @@ class _SetProfilePicBioScreenState extends State<SetProfilePicBioScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          CircleAvatar(
-                            radius: SizeConfig.screenHeight * 0.08,
+                          GestureDetector(
+                            onTap: () => _selectImage(),
+                            child: CircleAvatar(
+                              radius: SizeConfig.screenHeight * 0.08,
+                              backgroundColor: secondaryColor,
+                              backgroundImage: _selectedImageFile.isNotEmpty ? FileImage(File(_selectedImageFile)) : null,
+                              child: _selectedImageFile.isEmpty ? Text("+", style: TextStyle(fontSize: SizeConfig.screenHeight * 0.07, fontWeight: FontWeight.w300, color: Colors.black),) : const SizedBox.shrink(),
+                            ),
                           ),
-                          SizedBox(height: SizeConfig.screenHeight * 0.01,),
+                          SizedBox(height: SizeConfig.screenHeight * 0.04,),
                           Text("Your Bio", style: TextStyle(color: Colors.white70, fontSize: SizeConfig.screenHeight * 0.03),),
+                          SizedBox(height: SizeConfig.screenHeight * 0.08,),
                           TextFormField(
-                            maxLines: 5,
+                              maxLines: 5,
+                              keyboardType: TextInputType.multiline,
                             decoration: const InputDecoration(
-                                border: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white60)),
-                                enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white60))),
+                                fillColor: appTextColor,
+                                hintStyle: TextStyle(color: appTextColor, ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: appTextColor),
+                                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                ),
+                          ),
                           )
                         ],
                       ),
                     ),
-                    SizedBox(height: SizeConfig.screenHeight * 0.2,),
+                    SizedBox(height: SizeConfig.screenHeight * 0.07,),
                     Container(
                       margin: EdgeInsets.only(bottom: SizeConfig.screenHeight * 0.05),
                       child: WidgetHelper.commonButton(
-                          onClick: _sendOtp,
+                          onClick: _gotoFindFriends,
                           buttonWidth: SizeConfig.screenWidth * 0.5,
                           buttonText: "Next",
                         fontSize: SizeConfig.screenWidth * 0.05

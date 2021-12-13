@@ -49,6 +49,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 children: [
                   const CircleAvatar(
                     radius: 60.0,
+                    backgroundImage: AssetImage(appLogo),
                   ),
                   SizedBox(
                     height: SizeConfig.screenHeight * 0.01,
@@ -101,18 +102,18 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               SizedBox(
                 height: SizeConfig.screenHeight * 0.05,
               ),
-              WidgetHelper.commonButton(onClick: (){}, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: 'Reset Password', fontSize: SizeConfig.screenWidth * 0.045),
+              WidgetHelper.commonButton(onClick: (){}, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: 'Reset Password', fontSize: SizeConfig.screenHeight * BUTTON_FONT_SIZE),
               SizedBox(
                 height: SizeConfig.screenHeight * 0.02,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Go Back to "),
+                  const Text("Go Back to ", style: TextStyle(color: appTextColor),),
                   GestureDetector(
                     onTap: () => Navigator.of(context).pushNamedAndRemoveUntil(routeHome, (route) => false),
                     child: const Text("Home", style: TextStyle(
-                        color: Colors.greenAccent
+                        color: secondaryColor
                     ),),
                   )
                 ],

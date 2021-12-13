@@ -7,3 +7,4 @@ const routeRegister = "/registration";
 const routeSetFullName = "/setFullName";
 const routeSetUsername= "/setUsername";
 const routeSetProfilePicBio= "/setProfileBio";
+const routeFindFriends= "/findFriends";

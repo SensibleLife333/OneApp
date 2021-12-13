@@ -49,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   const CircleAvatar(
                     radius: 60.0,
+                    backgroundImage: AssetImage(appLogo),
                   ),
                   SizedBox(
                     height: SizeConfig.screenHeight * 0.01,
@@ -102,14 +103,14 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: SizeConfig.screenHeight * 0.05,
               ),
-              WidgetHelper.commonButton(onClick: _sendOtp, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: 'Login', fontSize: SizeConfig.screenWidth * 0.045),
+              WidgetHelper.commonButton(onClick: _sendOtp, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: 'Login', fontSize: SizeConfig.screenHeight * BUTTON_FONT_SIZE),
               SizedBox(
                 height: SizeConfig.screenHeight * 0.02,
               ),
               GestureDetector(
                 onTap: () => _forgotPassword(),
                 child: const Text("Forgot Your Password?", style: TextStyle(
-                  color: Colors.greenAccent
+                  color: secondaryColor
                 ),),
               ),
               SizedBox(
@@ -118,11 +119,11 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don't have the account?"),
+                  const Text("Don't have the account?", style: TextStyle(color: appTextColor),),
                   GestureDetector(
                     onTap: _registration,
                     child: const Text(" Register Now", style: TextStyle(
-                        color: Colors.greenAccent
+                        color: secondaryColor
                     ),),
                   )
                 ],

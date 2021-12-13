@@ -9,6 +9,7 @@ import 'package:oneapp/screens/home/register_screen.dart';
 import 'package:oneapp/screens/home/set_fullname_screen.dart';
 import 'package:oneapp/screens/home/set_profilpicbio_screen.dart';
 import 'package:oneapp/screens/home/set_username_screen.dart';
+import 'package:oneapp/screens/logged/find_friends_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
           routeSetFullName: (context) => const SetFullNameScreen(title: "Let us know your full name."),
           routeSetUsername: (context) => const SetUsernameScreen(title: "Username tells a lot about you",),
           routeSetProfilePicBio: (context) => const SetProfilePicBioScreen(title: "Select a profile pic"),
+          routeFindFriends: (context) => const FindFriendsScreen(title: "Find your friends!"),
         },
       ),
     );

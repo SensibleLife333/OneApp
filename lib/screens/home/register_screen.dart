@@ -21,7 +21,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool _isChecked = false;
 
   _sendOtp(){
-    Navigator.of(context).pushNamed(routeOtpVerify);
+    Navigator.of(context).pushNamed(routeSocialLogin);
   }
 
   @override
@@ -44,6 +44,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: [
                   const CircleAvatar(
                     radius: 60.0,
+                    backgroundImage: AssetImage(appLogo),
                   ),
                   SizedBox(
                     height: SizeConfig.screenHeight * 0.01,
@@ -99,9 +100,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                           _isChecked = value!;
                                         });
                                       }),
-                                  const Text("I Accept the "),
+                                  const Text("I Accept the ", style: TextStyle(color: appTextColor),),
                                   const Text("Terms & Conditions", style: TextStyle(
-                                    color: Colors.greenAccent
+                                    color: secondaryColor
                                   ),),
                                 ],
                               ),
@@ -114,18 +115,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ],
               ),
 
-              WidgetHelper.commonButton(onClick: _sendOtp, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: 'Create New Account', fontSize: SizeConfig.screenWidth * 0.045),
+              WidgetHelper.commonButton(onClick: _sendOtp, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: 'Create New Account', fontSize: SizeConfig.screenHeight * BUTTON_FONT_SIZE),
               SizedBox(
                 height: SizeConfig.screenHeight * 0.01,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children:  [
-                  const Text("Already have an account? "),
+                  const Text("Already have an account? ", style: TextStyle(color: appTextColor),),
                   GestureDetector(
                     onTap: () => Navigator.of(context).pushNamed(routeHome),
                     child: const Text("Login Now", style: TextStyle(
-                        color: Colors.greenAccent
+                        color: secondaryColor
                     ),),
                   ),
                 ],
@@ -158,7 +159,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       style: ElevatedButton.styleFrom(
         shape: const CircleBorder(),
         padding: const EdgeInsets.all(10),
-        primary: Colors.greenAccent, // <-- Button color
+        primary: secondaryColor, // <-- Button color
         onPrimary: Colors.green, // <-- Splash color
       ),
     );
@@ -171,8 +172,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
       MaterialState.focused,
     };
     if (states.any(interactiveStates.contains)) {
-      return Colors.greenAccent;
+      return secondaryColor;
     }
-    return Colors.greenAccent;
+    return appTextColor;
   }
 }

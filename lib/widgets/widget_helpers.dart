@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:oneapp/config/oneapp_sizeconfig.dart';
+import 'package:oneapp/utils/oneapp_colors.dart';
 
 class WidgetHelper {
   static Widget commonButton(
@@ -16,7 +16,7 @@ class WidgetHelper {
               gradient: const LinearGradient(
                   begin: Alignment.bottomLeft,
                   end: Alignment.bottomRight,
-                  colors: [Colors.tealAccent, Colors.greenAccent])),
+                  colors: [secondaryColor, secondaryColor])),
           child: TextButton(
             onPressed: () => onClick(),
             child: Text(
@@ -32,16 +32,17 @@ class WidgetHelper {
       required double buttonWidth,
       required String buttonText,
       required IconData icon,
-      required double width}) {
+      required double width,
+      required double fontSize}) {
     return SizedBox(
         width: buttonWidth,
         child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0),
+              borderRadius: BorderRadius.circular(40.0),
               gradient: const LinearGradient(
                   begin: Alignment.bottomLeft,
                   end: Alignment.bottomRight,
-                  colors: [Colors.tealAccent, Colors.greenAccent])),
+                  colors: [secondaryColor, secondaryColor])),
           child: TextButton(
             onPressed: () => onClick(),
             child: Row(
@@ -49,14 +50,14 @@ class WidgetHelper {
               children: [
                 FaIcon(
                   icon,
-                  color: Colors.black54,
+                  color: Colors.black,
                 ),
                 SizedBox(
                   width: width * 0.01,
                 ),
                 Text(
                   buttonText,
-                  style: const TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.black, fontSize: fontSize),
                 ),
               ],
             ),
@@ -100,4 +101,5 @@ class WidgetHelper {
       ),
     );
   }
+
 }

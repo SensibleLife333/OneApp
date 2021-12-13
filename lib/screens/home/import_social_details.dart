@@ -107,7 +107,13 @@ class _ImportSocialDetailsScreenState extends State<ImportSocialDetailsScreen> {
             SizedBox(
               height: SizeConfig.screenHeight * 0.1,
             ),
-            WidgetHelper.commonButton(onClick: (){}, buttonWidth: SizeConfig.screenWidth * 0.5, buttonText: "Let's Get Started", fontSize: SizeConfig.screenWidth * 0.045),
+            WidgetHelper.commonIconButton(onClick: (){}, buttonWidth: SizeConfig.screenWidth * 0.6, buttonText: "Import from Twitter", width: SizeConfig.screenWidth, icon: FontAwesomeIcons.twitter, fontSize: SizeConfig.screenHeight * 0.023),
+            WidgetHelper.commonIconButton(onClick: (){}, buttonWidth: SizeConfig.screenWidth * 0.6, buttonText: "Import from LinkedIn", width: SizeConfig.screenWidth, icon: FontAwesomeIcons.linkedinIn, fontSize: SizeConfig.screenHeight * 0.023),
+            WidgetHelper.commonIconButton(onClick: (){}, buttonWidth: SizeConfig.screenWidth * 0.6, buttonText: "Import from Instagram", width: SizeConfig.screenWidth, icon: FontAwesomeIcons.instagram, fontSize: SizeConfig.screenHeight * 0.023),
+            GestureDetector(
+              onTap: () => Navigator.pushNamed(context, routeSetProfilePicBio),
+              child: const Text("I will enter my info manually", style: TextStyle(color: appTextColor),),
+            )
           ],
         ),
       ),
